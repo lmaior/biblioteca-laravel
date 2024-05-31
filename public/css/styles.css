@@ -1,0 +1,74 @@
+/* General */
+
+h1 {
+    color: rgb(16, 19, 19);
+    font-family: 'Roboto';
+}
+
+.container-custom {
+    max-width: 600px;
+}
+
+.custom-margin {
+    margin: 20px auto; /* Ajuste esses valores conforme necessário */
+    display: block; /* Necessário para centralizar */
+}
+
+
+/* Nav Bar */
+
+/* hover */
+.navbar-nav .nav-link:hover {
+    color: #fff; /* Cor do texto ao passar o mouse (hover) */
+}
+
+.navbar-nav .nav-item:hover {
+    background-color: #007bff; /* Cor de fundo ao passar o mouse (hover)*/
+}
+
+/* ativo: */
+.navbar-nav .nav-item.active {
+    background-color: #007bff; /* Cor de fundo do item ativo */
+}
+
+.navbar-nav .nav-item.active a {
+    color: #fff; /* Cor do texto do item ativo */
+}
+
+/* cor padrao */
+.navbar-nav .nav-link {
+    color: #fff; /* Cor do texto estatico */
+}
+.navbar-nav .nav-item{
+    background-color: rgb(102, 102, 102); /* Cor do fundo estatico */
+}
+
+
+.inline {
+    display: inline-block;
+}
+
+/* barra de busca */
+
+.search-bar {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+/* página de detalhes do livro */
+.book-details {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.book-details img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
