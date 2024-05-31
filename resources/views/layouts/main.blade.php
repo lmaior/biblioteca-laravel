@@ -44,6 +44,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="this.parentElement.style.display='none';"></button>
                 </div>
             @endif
+            @if (session('msg-error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('msg-error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="this.parentElement.style.display='none';"></button>
+                </div>
+            @endif
     </main>
     <div>
         @yield('content')
