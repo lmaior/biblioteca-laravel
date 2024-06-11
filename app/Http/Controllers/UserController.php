@@ -28,7 +28,7 @@ class UserController extends Controller
         //     'zipcode' => 'required|digits:8',
         // ]);
 
-        if( $request->input('zipcode.length') != 8){
+        if($request->input('zipcode.length') == 8){
 
             if($this->userService->createUserWithAddress($request->all())){
                 return redirect()->route('main')->with('msg', 'Cadastrado com sucesso!');

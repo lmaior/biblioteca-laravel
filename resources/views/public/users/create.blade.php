@@ -91,28 +91,32 @@
 
                                                 <div class="form-group row mb-3">
                                                     <label for="state" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 readonly-wrapper">
                                                         <input type="text" class="form-control" name="state" id="state" readonly>
+                                                        <div class="readonly-overlay"></div>
                                                     </div>
                                                 </div>
 
-                                             <div class="form-group row mb-3">
+                                             <div class="form-group row mb-3 ">
                                                 <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Cidade') }}</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 readonly-wrapper">
                                                     <input type="text" class="form-control" name="city" id="city" readonly>
+                                                    <div class="readonly-overlay"></div>
                                                 </div>
                                             </div>
                         <div class="form-group row mb-3">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Endereço') }}</label>
-                            <div class="col-md-6">
+                            <div class="col-md-6 readonly-wrapper">
                                 <input type="text" class="form-control" name="address" id="address" readonly>
+                                <div class="readonly-overlay"></div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-3">
                             <label for="neighborhood" class="col-md-4 col-form-label text-md-right">{{ __('Bairro') }}</label>
-                            <div class="col-md-6">
+                            <div class="col-md-6 readonly-wrapper">
                                 <input type="text" class="form-control" name="neighborhood" id="neighborhood" readonly>
+                                <div class="readonly-overlay"></div>
                             </div>
                         </div>
 

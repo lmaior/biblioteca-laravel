@@ -98,8 +98,31 @@ h1 {
     color: whitesmoke; /* Cor do texto ao passar o mouse */
 }
 
-
+/*
 input[readonly] {
-    background-color: #e9ecef; /* Cor cinza claro do Bootstrap */
-    opacity: 1; /* Opacidade total para evitar que pareçam desabilitados */
+    background-color: #e9ecef;
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: none;
+} */
+
+.readonly-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.readonly-wrapper input {
+    background-color: #e9ecef;
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+.readonly-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: not-allowed;
+    background: transparent;
 }
