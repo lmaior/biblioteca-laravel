@@ -70,5 +70,36 @@ h1 {
     height: auto;
 }
 
+.item-list-none {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
 
+
+.add-button {
+    background-color: #f0740e; /* Cor de fundo */
+    border: none;
+    color: white; /* Cor do texto */
+    padding: 15px 32px; /* Espaçamento interno */
+    text-align: centerrgb(241, 122, 11);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px; /* Bordas arredondadas */
+    transition-duration: 0.4s; /* Duração da transição */
+}
+
+.add-button:hover {
+    background-color: #db6a0d; /* Cor de fundo ao passar o mouse */
+    color: whitesmoke; /* Cor do texto ao passar o mouse */
+}
+
+
+input[readonly] {
+    background-color: #e9ecef; /* Cor cinza claro do Bootstrap */
+    opacity: 1; /* Opacidade total para evitar que pareçam desabilitados */
+}

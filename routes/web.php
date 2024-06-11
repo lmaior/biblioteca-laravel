@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BooksController;
 
 /*
@@ -14,9 +15,8 @@ use App\Http\Controllers\BooksController;
 |
 */
 
-Route::get('/asd', function () {
-    return view('welcome');
-})->name('asd');
+Route::get('/registrar', [UserController::class, 'create'])->name('createUser');
+Route::post('/registrar', [UserController::class, 'store'])->name('storeUser');
 
 // Route::get('/teste', function () {
 //     return view('teste');
@@ -36,3 +36,7 @@ Route::delete('/delete/{id}', [BooksController::class, 'delete'])->name('deleteB
 Route::get('/detalhes/{id}', [BooksController::class,'show'])->name('showBookDetails');
 
 Route::get('/teste', [BooksController::class, 'teste'])->name('teste');
+
+//public
+
+Route::get('/biblioteca',  [BooksController::class, 'indexNovo'])->name('library'); //TODO view passado na route invés de um método

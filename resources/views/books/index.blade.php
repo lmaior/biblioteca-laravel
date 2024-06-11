@@ -6,7 +6,6 @@
 <div class="container">
     <form action="{{ route('main') }}" method="GET">
         <input class='search-bar' type="text" name="search" placeholder="Buscar livros..." width="100">
-        
     </form>
 
     @if($search)
@@ -18,7 +17,7 @@
         <thead>
             <tr>
                 <th>Título</th>
-                <th>Autor</th>
+                <th>Autor(es)</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -26,7 +25,14 @@
            @foreach($livros as $book)
             <tr>
                 <td>{{$book->title}}</td>
-                <td>{{$book->author}}</td>
+                @if(count($book->authors) == 0 || $book->authors == null)
+                <td> <ul class='item-list-none'><li>Autor desconhecido</li></ul></td>
+                @else
+                <td>
+                    {{ $book->authors->pluck('name')->implode(', ') }}
+                </td>
+                @endif
+            </td>
                 <td>
                     <!-- Botões de ação -->
                     <a href="{{route('editBook', ['id' => $book->id]) }}" class="btn btn-primary">Editar</a>
@@ -44,7 +50,7 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center"> <!-- Envolve o botão em um div com as classes d-flex e justify-content-center -->
-        <a href="{{ route('createBook') }}" class="btn btn-secondary">Adicionar Livro</a>
+        <a href="{{ route('createBook') }}" class="add-button" type='button'>Adicionar Livro</a>
     </div>
 </div>
 

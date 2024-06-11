@@ -16,8 +16,31 @@
             <textarea class="form-control" id="description" name="description" rows="5" placeholder="Digite a descrição do livro"></textarea>
         </div>
         <div class="form-group">
-            <label for="author">Autor</label>
-            <input type="text" class="form-control" id="author" name="author" placeholder="Digite o autor do livro" required>
+            <h6>Adicione um autor</h6>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="selected_authors[]">
+            <option selected disabled>Escolha o autor</option>
+            @foreach($authors as $author)
+            <option value={{ $author->id }}>{{ $author->name }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group">
+            <h6>Adicione um autor</h6>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="selected_authors[]">
+            <option selected disabled>Escolha o autor</option>
+            @foreach($authors as $author)
+            <option value={{ $author->id }}>{{ $author->name }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="form-group">
+            <h6>Adicione um autor</h6>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="selected_authors[]">
+            <option selected disabled>Escolha o autor</option>
+            @foreach($authors as $author)
+            <option value={{ $author->id }}>{{ $author->name }}</option>
+            @endforeach
+          </select>
         </div>
         <div class="form-group">
             <label for="pages">Número de Páginas</label>
@@ -26,13 +49,14 @@
         <div class="form-group">
             <label for="release_date">Escolha uma data:</label>
             <input type="date" class="form-control" id="release_date" name="release_date">
+        </div>
         <div class="form-group">
             <label for="image">Imagem da capa:</label>
             <input type="file" class="form-control" id="image" name="image">
         </div>
         <div class="text-center custom-margin">
-            <button type="submit" class="btn btn-primary">Adicionar Livro</input>
-        </div> 
+            <button type="submit" class="btn btn-primary">Adicionar Livro</button>
+        </div>
     </form>
 </div>
 

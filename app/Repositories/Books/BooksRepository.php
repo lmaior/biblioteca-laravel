@@ -48,7 +48,10 @@ class BooksRepository implements BooksRepositoryInterface
         //$book->created_at = null;
         //dd('data: ' . $book->created_at);
         //$book->updated_at = null;
-        return $book->save();
+
+        //TODO refazer o return
+        $selectedAuthors = $request->selected_authors;
+        return $book->save() && $book->authors()->sync($selectedAuthors);
     }
 
     public function edit($id)
@@ -59,7 +62,11 @@ class BooksRepository implements BooksRepositoryInterface
 
     public function update(Request $request)
     {
+        $book = Book::findOrFail($request->id);
         $data = $request->all();
+        $authors = collect($request->selected_authors);
+        $book->authors()->detach();
+        $book->authors()->attach($authors->unique());
         if($request->hasFile('image') && $request->file('image')->isValid()){
 
             $requestImage = $request->image;
@@ -73,7 +80,7 @@ class BooksRepository implements BooksRepositoryInterface
             $data['image'] = $imageName;
         }
 
-        return Book::findOrFail($request->id)->update($data);
+        return $book->update($data);
     }
 
     public function delete($id)

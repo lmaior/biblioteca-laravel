@@ -18,13 +18,13 @@ use Carbon\Carbon;
                         {{-- Placeholder da imagem --}}
                         <img src="{{ asset('https://dunlite.com.au/wp-content/uploads/2019/04/placeholder.jpg') }}" class="img-fluid mb-3" alt="Placeholder">
                     @endif
-                    
+
                     {{-- Título --}}
                     <h2 class="font-weight-bold mb-3">{{ $book->title }}</h2>
-                    
+
                     {{-- Autor --}}
-                    <p class="mb-3">{{ $book->author }}</p>
-                    
+                    <p class="mb-3"><b>Autor(es):</b> {{ $book->authors->pluck('name')->implode(' | ') }}</p>
+
                     {{-- Descrição --}}
                     <h5 class="font-weight-bold mb-0">Descrição</h5>
                     <br>
@@ -34,11 +34,18 @@ use Carbon\Carbon;
                         </div>
                     </div>
                     <br>
-                    
+
                     {{-- Número de Páginas e Ano de Lançamento --}}
                     <p class="mb-0">Páginas: <b>{{ $book->pages }}</b>  |
                         Data de Lançamento: <b>{{ Carbon::parse($book->release_date)->format('d/m/Y') }}</b></p>
                     <br><br>
+                </div>
+                <div class='text-center'>
+                    @if($book->publisher)
+                    <p>Editora: {{ $book->publisher->name }}</p>
+                    @else
+                    <p>Editora: Não cadastrada</p>
+                    @endif
                 </div>
     </div>
 </div>

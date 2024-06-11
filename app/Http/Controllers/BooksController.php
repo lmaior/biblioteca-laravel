@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use Illuminate\Http\Request;
 use App\Repositories\Books\BooksRepositoryInterface;
 
@@ -25,27 +26,39 @@ class BooksController extends Controller
         // return view('teste');
     }
 
+    public function indexNovo()
+    {
+        $search = request('search');
+        $books = $this->booksRepository->index($search);
+        $currentpage = 'library';
+
+        return view('public.books.index', ['currentpage' => $currentpage, 'livros' => $books, 'search' => $search]);
+        // return view('teste');
+    }
+
     public function create()
     {
         $currentpage = '';
-        return view('books.create', ['currentpage' => $currentpage]);
+        $authors = Author::all();
+        return view('books.create',compact('authors', 'currentpage'));
     }
 
     public function store(Request $request)
     {
         if($this->booksRepository->store($request)){
-            return redirect()->route('main')->with('msg', 'Criado com sucesso!');;
+            return redirect()->route('main')->with('msg', 'Criado com sucesso!');
         } else{
-            return redirect()->route('main')->with('msg-error', 'Erro ao salvar!');;
+            return redirect()->route('main')->with('msg-error', 'Erro ao salvar!');
         }
     }
 
     public function edit($id)
     {
+        $authors = Author::all();
         $book = $this->booksRepository->edit($id);
         $release_date = substr($book->release_date, 0, 10);
         $currentpage = "";
-        return view('books.edit', compact('book', 'currentpage', 'release_date'));
+        return view('books.edit', compact('book', 'currentpage', 'release_date', 'authors'));
     }
 
     public function update(Request $request)
